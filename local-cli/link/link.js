@@ -112,7 +112,9 @@ function link(args, config) {
     return Promise.reject(err);
   }
 
-  const packageName = args[0];
+  const packageNameArg = args[0];
+  // package arg possible contains version eg. package@version
+  const packageName = packageNameArg.split("@")[0];
 
   const dependencies = getDependencyConfig(
     config,

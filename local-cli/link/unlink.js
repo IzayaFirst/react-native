@@ -65,7 +65,9 @@ const unlinkDependencyIOS = (iOSProject, dependency, packageName, iOSDependencie
  * that's checked
  */
 function unlink(args, config) {
-  const packageName = args[0];
+  const packageNameArg = args[0];
+  // package arg possible contains version eg. package@version
+  const packageName = packageNameArg.split("@")[0];
 
   var project;
   var dependency;
